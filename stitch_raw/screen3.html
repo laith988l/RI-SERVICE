@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RI Service - Leistungen Overview</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5c3df5",
+                        "background-light": "#f6f5f8",
+                        "background-dark": "#131022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Navbar -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-3xl">diamond</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">RI Service</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">About</a>
+<a class="text-sm font-medium text-primary font-semibold" href="#">Services</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex h-10 px-6 items-center justify-center rounded-full bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                    Get a Quote
+                </button>
+<button class="md:hidden p-2 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full">
+<!-- Hero Section -->
+<section class="py-20 px-6 text-center">
+<div class="max-w-4xl mx-auto flex flex-col items-center gap-6">
+<span class="inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary ring-1 ring-inset ring-primary/20">
+                    Our Expertise
+                </span>
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white">
+                    Comprehensive Corporate Solutions
+                </h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+                    We deliver tailored strategies and operational excellence to help your business thrive in a competitive landscape. Explore our core services below.
+                </p>
+</div>
+</section>
+<!-- Services List -->
+<section class="px-6 pb-24">
+<div class="max-w-[1280px] mx-auto flex flex-col gap-16 md:gap-24">
+<!-- Service 1: Corporate Strategy -->
+<div class="group relative grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-white dark:bg-slate-900/50 p-6 md:p-8 rounded-lg shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex flex-col gap-6 order-2 md:order-1">
+<div class="flex flex-col gap-3">
+<span class="text-primary font-bold tracking-wide uppercase text-sm">Strategic Planning</span>
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white">Corporate Strategy</h2>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Define your business direction with precision. We analyze market dynamics to build sustainable, long-term roadmaps that drive growth and competitive advantage.
+                            </p>
+</div>
+<ul class="flex flex-col gap-3 text-slate-700 dark:text-slate-300">
+<li class="flex items-center gap-3">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+                                Market Analysis &amp; Forecasting
+                            </li>
+<li class="flex items-center gap-3">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+                                Competitor Benchmarking
+                            </li>
+<li class="flex items-center gap-3">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+                                Growth Roadmap Development
+                            </li>
+</ul>
+<button class="mt-2 w-fit h-12 px-8 rounded-full bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-all flex items-center gap-2 group-hover:pl-6 group-hover:pr-10 relative">
+                            Learn More
+                            <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1 absolute right-4 opacity-0 group-hover:opacity-100">arrow_forward</span>
+</button>
+</div>
+<div class="relative aspect-[4/3] w-full rounded-lg overflow-hidden bg-slate-200 order-1 md:order-2">
+<img alt="Team discussing corporate strategy with charts on table" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="Team discussing corporate strategy with charts on table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi9sMuF7O0JuO2Mcr2wnrEY_s7DeMUwIhzUTZEIIgbH4EFckrGjBlaUIhh2Tj3c7H_orIxaAhN2igZv8XTQ41narmjslotGmyVAgPrcHXQr1AjJmOghrTc65tdxEqTj_ybqNq_OlfrncQBcXLKb3u5fD8vOHkw5qWjk8OE_3M9H0E74xiEQ6eBGv8pqRn-iN5Vps1h5lSx6qieDk-fIu8eZSF8mGnO6MPuVpw0bCJRzx_YS76-glcnXdX8XPffgDI5WI1xuhnW9p4"/>
+</div>
+</div>
+<!-- Service 2: Financial Consulting (Image Left) -->
+<div class="group relative grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-white dark:bg-slate-900/50 p-6 md:p-8 rounded-lg shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="relative aspect-[4/3] w-full rounded-lg overflow-hidden bg-slate-200 order-1">
+<img alt="Financial documents and calculator on desk" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="Financial documents and calculator on desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn13OpLZzN8IGDW9c2ZlF_mAw8S8iIOa9ZHzQPO3jDw6puaXu-Vx4zhdbKko5OHSQghuN9CkZP_HoBc19yb8wxYEeNzuClCZuLzAQL5HYSiHuVaGqOpfoFu1xtWrF6qPqrsTI2naAip7Fxe7hUDakZ7Cadj9GGNYFrqzPtDomrjZBBf5oBV8-pRqZnEz0KAi9kkwCZvE2zFCnF4DeCxTtGW0udEDrvHLoXvNiLdy7W2QBQbhD7BS0nacPwKciPe7Lr7v-BMffplFY"/>
+</div>
+<div class="flex flex-col gap-6 order-2">
+<div class="flex flex-col gap-3">
+<span class="text-primary font-bold tracking-wide uppercase text-sm">Finance &amp; Audit</span>
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white">Financial Consulting</h2>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Optimize your financial health with our expert consulting services. From detailed audits to tax planning, we ensure stability and efficiency in your fiscal operations.
+                            </p>
+</div>
+<ul class="flex flex-col gap-3 text-slate-700 dark:text-slate-300">
+<li class="flex items-center gap-3">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+                                Comprehensive Audits
+                            </li>
+<li class="flex items-center gap-3">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+                                Risk Management
+                            </li>
+<li class="flex items-center gap-3">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+                                Investment Portfolio Advice
+                            </li>
+</ul>
+<button class="mt-2 w-fit h-12 px-8 rounded-full bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-all flex items-center gap-2 group-hover:pl-6 group-hover:pr-10 relative">
+                            Learn More
+                            <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1 absolute right-4 opacity-0 group-hover:opacity-100">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Service 3: HR Solutions -->
+<div class="group relative grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-white dark:bg-slate-900/50 p-6 md:p-8 rounded-lg shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex flex-col gap-6 order-2 md:order-1">
+<div class="flex flex-col gap-3">
+<span class="text-primary font-bold tracking-wide uppercase text-sm">Human Resources</span>
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white">HR Solutions</h2>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Building the right team is crucial. We offer end-to-end HR solutions ranging from executive search to employee retention strategies and training workshops.
+                            </p>
+</div>
+<ul class="flex flex-col gap-3 text-slate-700 dark:text-slate-300">
+<li class="flex items-center gap-3">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+                                Talent Acquisition
+                            </li>
+<li class="flex items-center gap-3">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+                                Skill Development Workshops
+                            </li>
+<li class="flex items-center gap-3">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+                                Payroll &amp; Benefits Management
+                            </li>
+</ul>
+<button class="mt-2 w-fit h-12 px-8 rounded-full bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-all flex items-center gap-2 group-hover:pl-6 group-hover:pr-10 relative">
+                            Learn More
+                            <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1 absolute right-4 opacity-0 group-hover:opacity-100">arrow_forward</span>
+</button>
+</div>
+<div class="relative aspect-[4/3] w-full rounded-lg overflow-hidden bg-slate-200 order-1 md:order-2">
+<img alt="Diverse group of professionals in a meeting" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="Diverse group of professionals in a meeting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_e7Bh2gT_qbdAe_HoZxSJbOmSoljpGtODjASUFxOtrji2Ill99q8lRzFarFmn6U05nubMM2g-lzA5cqSopD1Hz6bxNX4pDQearKeMVoPg8elXjbu_nRziXiPSPi7GzTP-uG6zlH3e5LuQcLc_Ot8cYOZ_fY5ssEFJmrVj3I84bHF0SuHpNaPC73Vm8jt2SM6GbgUcOWPjA0SJaV5yGfe2H_9NmMOHubMv-XmapRnU8RiQU1Z0uTT4Q8o_uyScD3QQzIEufpbq5Dc"/>
+</div>
+</div>
+<!-- Service 4: IT & Digital Transformation (Image Left) -->
+<div class="group relative grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-white dark:bg-slate-900/50 p-6 md:p-8 rounded-lg shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="relative aspect-[4/3] w-full rounded-lg overflow-hidden bg-slate-200 order-1">
+<img alt="Digital dashboard analytics on screen" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="Digital dashboard analytics on screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNYrqrVIHgyycr1Qhj25CCHzp_nDo37dfd4xMqzN2FkmWZCoIw8_JuT4xa9YUgeJRywk2y9X6zZvGK4C-bgIGlANtIXJWcyPpMStkisFWAnZ2wg9ZAoZgJs_2YIftoeQoBBm6YYJ3J_jdCoslOmBfJAInhwHvO4i_ROhhdpfvzSL8SHzqpccpPPF0p27XY_z-DOxPbMXtWmQOcz5ONLmW503-S4YqkrTop4O9NNRr5mqNXofGM87dvo-f9yZ7cCOACF_bS-e_aKd8"/>
+</div>
+<div class="flex flex-col gap-6 order-2">
+<div class="flex flex-col gap-3">
+<span class="text-primary font-bold tracking-wide uppercase text-sm">Technology</span>
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white">IT &amp; Digital Transformation</h2>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Modernize your operations with cutting-edge technology solutions. We guide you through digital transformation to enhance productivity and security.
+                            </p>
+</div>
+<ul class="flex flex-col gap-3 text-slate-700 dark:text-slate-300">
+<li class="flex items-center gap-3">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+                                Cloud Migration
+                            </li>
+<li class="flex items-center gap-3">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+                                Cybersecurity Audits
+                            </li>
+<li class="flex items-center gap-3">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+                                Software Implementation
+                            </li>
+</ul>
+<button class="mt-2 w-fit h-12 px-8 rounded-full bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-all flex items-center gap-2 group-hover:pl-6 group-hover:pr-10 relative">
+                            Learn More
+                            <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1 absolute right-4 opacity-0 group-hover:opacity-100">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-primary py-20 px-6 mt-auto">
+<div class="max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
+<h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                    Ready to elevate your business?
+                </h2>
+<p class="text-primary-100 dark:text-white/80 text-lg max-w-2xl">
+                    Contact us today for a free consultation. Let's discuss how our tailored services can help you achieve your goals.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="h-12 px-8 rounded-full bg-white text-primary font-bold hover:bg-slate-50 transition-colors shadow-lg">
+                        Get Started Now
+                    </button>
+<button class="h-12 px-8 rounded-full bg-primary-700/30 border border-white/20 text-white font-bold hover:bg-primary-700/50 transition-colors">
+                        View Case Studies
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 py-12 px-6">
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">diamond</span>
+<span class="text-xl font-bold text-slate-900 dark:text-white">RI Service</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400">
+                    Your trusted partner for corporate excellence. Delivering strategic insights since 2010.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="font-bold text-slate-900 dark:text-white">Services</h3>
+<div class="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Corporate Strategy</a>
+<a class="hover:text-primary transition-colors" href="#">Financial Consulting</a>
+<a class="hover:text-primary transition-colors" href="#">HR Solutions</a>
+<a class="hover:text-primary transition-colors" href="#">IT Transformation</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="font-bold text-slate-900 dark:text-white">Company</h3>
+<div class="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">About Us</a>
+<a class="hover:text-primary transition-colors" href="#">Careers</a>
+<a class="hover:text-primary transition-colors" href="#">Blog</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="font-bold text-slate-900 dark:text-white">Connect</h3>
+<div class="flex gap-4">
+<a class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-xl">public</span>
+</a>
+<a class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-xl">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 text-center text-sm text-slate-500">
+            © 2023 RI Service Inc. All rights reserved.
+        </div>
+</footer>
+</body></html>

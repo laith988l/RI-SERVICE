@@ -1,0 +1,667 @@
+[
+  {
+    "id": "TC001",
+    "title": "Login and create a new resource successfully from the Admin Dashboard",
+    "description": "Verifies an authenticated admin can add a new resource and see it appear in the resources list.",
+    "category": "Admin Dashboard",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email input field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password input field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Add new resource\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"E2E Test Resource\" into the Name (or Title) field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Save\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"E2E Test Resource\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Attempt to access Admin Dashboard while unauthenticated and complete login after redirect",
+    "description": "Verifies a user is redirected to login when trying to access /admin and can proceed to the dashboard after successful login.",
+    "category": "Admin Dashboard",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email input field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password input field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Dashboard\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "Create resource validation: saving with required fields empty shows errors and does not create resource",
+    "description": "Verifies required-field validation appears when attempting to save an empty new resource form and no new item is added.",
+    "category": "Admin Dashboard",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email input field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password input field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Add new resource\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Save\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Required\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"E2E Empty Resource\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Edit an existing resource and verify updated content appears in the list",
+    "description": "Verifies an admin can edit an existing resource and see the updated value reflected in the resources list.",
+    "category": "Admin Dashboard",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email input field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password input field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Edit\" on the first resource in the list"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Updated Resource Name\" into the Name (or Title) field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Save\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Updated Resource Name\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Delete a resource and confirm it is removed from the list",
+    "description": "Verifies an admin can delete a resource, confirm the deletion, and the item disappears from the resources list.",
+    "category": "Admin Dashboard",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email input field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password input field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on the first resource in the list"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Confirm\" to confirm deletion"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Deleted\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Delete\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Admin Dashboard list renders after login",
+    "description": "Verifies the Admin Dashboard loads successfully and shows a visible resources list area for an authenticated admin.",
+    "category": "Admin Dashboard",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_USER}}\" into the email input field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"{{LOGIN_PASSWORD}}\" into the password input field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Login\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/admin\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Resources\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Add new resource\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Submit contact form successfully with valid inputs",
+    "description": "Verifies a visitor can submit the contact form with valid name, email, and message and sees a success confirmation.",
+    "category": "Contact Form",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Contact\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"Alex Tester\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"alex.tester@example.com\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"Hello, I would like more information about your services.\" into the message field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Thank you\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"success\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Show validation error when email format is invalid",
+    "description": "Verifies the form blocks submission and shows an email validation error when the email is invalid.",
+    "category": "Contact Form",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Contact\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"Alex Tester\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"alex.tester@\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"This is a test message to validate email formatting.\" into the message field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"email\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"invalid\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Show validation error when name is missing",
+    "description": "Verifies the form blocks submission and shows a name-required validation error when name is empty.",
+    "category": "Contact Form",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Contact\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"alex.tester@example.com\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"I forgot to enter my name; the form should show a validation error.\" into the message field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"name\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"required\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Show validation error when message is missing",
+    "description": "Verifies the form blocks submission and shows a message-required validation error when message is empty.",
+    "category": "Contact Form",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Contact\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"Alex Tester\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"alex.tester@example.com\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"message\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"required\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Show validation errors when submitting an empty contact form",
+    "description": "Verifies submitting with all fields empty shows required-field validation messages and does not show success.",
+    "category": "Contact Form",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Contact\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"name\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"email\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"message\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/contact\""
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Allow email entry with plus addressing and submit successfully",
+    "description": "Verifies the form accepts a valid email with plus addressing and shows success confirmation after submit.",
+    "category": "Contact Form",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Contact\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"Alex Tester\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"alex.tester+inquiry@example.com\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"Testing a valid email format with plus addressing.\" into the message field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Thank you\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"success\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Trims or accepts leading/trailing spaces in email and submits successfully",
+    "description": "Verifies the form handles an email with leading/trailing spaces and still allows successful submission (or visibly normalizes input).",
+    "category": "Contact Form",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Contact\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"Alex Tester\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"  alex.tester@example.com  \" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"Testing whether the form handles whitespace around the email.\" into the message field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Thank you\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"success\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "Successful submit clears form fields (if clearing is implemented)",
+    "description": "Verifies after a successful submission the form does not keep the previously entered values visible.",
+    "category": "Contact Form",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Contact\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"Alex Tester\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"alex.tester@example.com\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill \"Please confirm whether fields clear after successful submission.\" into the message field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Thank you\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"name field\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "Contact: submit form successfully with valid inputs",
+    "description": "Verifies the contact form accepts valid name, email, and message and shows a visible success confirmation after submission.",
+    "category": "Forms Test Suite (end-to-end form tests)",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Contact\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Test User\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"test.user@example.com\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Hello, this is a test message.\" into the message field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Success\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "Contact: show validation error for invalid email format",
+    "description": "Verifies the contact form displays an email validation error and does not show success confirmation when email format is invalid.",
+    "category": "Forms Test Suite (end-to-end form tests)",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Test User\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"not-an-email\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"This message should not send due to invalid email.\" into the message field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"email\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"invalid\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC017",
+    "title": "Contact: required field validation when message is missing",
+    "description": "Verifies the contact form blocks submission and shows a visible validation message when the message field is left blank.",
+    "category": "Forms Test Suite (end-to-end form tests)",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Test User\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"test.user@example.com\" into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Submit\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"message\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"required\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Success\" is visible"
+      }
+    ]
+  }
+]

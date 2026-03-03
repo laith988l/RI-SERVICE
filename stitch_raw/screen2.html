@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html class="light" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5c3df5",
+                        "background-light": "#f6f5f8",
+                        "background-dark": "#131022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50 border-b border-primary/10">
+<div class="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold tracking-tight">RI Service</h2>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors font-medium" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors font-medium" href="#">Services</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors font-medium" href="#">About</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors font-medium" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-2.5 rounded-full font-bold transition-all shadow-lg shadow-primary/20">
+                    Login
+                </button>
+</div>
+</div>
+</header>
+<!-- Main Content Area (Success Screen) -->
+<main class="flex-grow flex items-center justify-center px-6 py-20">
+<div class="max-w-[600px] w-full bg-white dark:bg-slate-900 rounded-[24px] shadow-[0px_10px_25px_rgba(0,0,0,0.05)] p-10 text-center flex flex-col items-center">
+<!-- Success Icon -->
+<div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary text-5xl font-bold">check</span>
+</div>
+<!-- Text Content -->
+<h1 class="text-[#111111] dark:text-white text-[48px] font-bold leading-tight mb-4">Vielen Dank!</h1>
+<p class="text-[#6B7280] dark:text-slate-400 text-lg leading-relaxed mb-10 max-w-[400px]">
+                Ihre Anfrage wurde erfolgreich übermittelt. Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.
+            </p>
+<!-- Action Button -->
+<button class="bg-primary hover:bg-primary/90 text-white text-base font-bold py-4 px-12 rounded-[28px] transition-all shadow-xl shadow-primary/25">
+                Zur Startseite
+            </button>
+<!-- Visual Element -->
+<div class="mt-12 w-full h-48 rounded-2xl overflow-hidden">
+<img alt="Abstract purple gradient pattern" class="w-full h-full object-cover opacity-80 dark:opacity-40" data-alt="Abstract vibrant purple gradient wave pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPoTxDvCOX8gPt1qfR2h2sFL-WX5kr4hpX9AtpKTqOx44qnq4gnqkZlHMm1E_6PzIPPenKm1GvlYHNcvj3YbFSV4vkEeSRzxiqnpoWfchegu8YFtye5u3TzVOCSADuigffHVQLzL_wdZEkgsyvlSB1WbUfOqfz5ziyrNPeh6bp-hWs6dudOSVjXdbGfPCu6IeqVEkjrJSgzjqnm_tIhQxMbRnKOBRcvaqzIRo1D1OLFnxyeXtx-cOa3fdk_bRNx8zXpXxwR3MubVM"/>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-white dark:bg-slate-900 border-t border-primary/5 py-12">
+<div class="max-w-[1200px] mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined">bolt</span>
+<span class="text-slate-900 dark:text-slate-100 font-bold text-lg">RI Service</span>
+</div>
+<div class="flex flex-wrap justify-center gap-8 md:gap-12">
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">Impressum</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">Datenschutz</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">Kontakt</a>
+</div>
+<div class="flex gap-4">
+<a class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-xl">public</span>
+</a>
+</div>
+</div>
+<div class="text-center pt-8 border-t border-slate-100 dark:border-slate-800">
+<p class="text-slate-400 text-sm">© 2024 RI Service. Alle Rechte vorbehalten.</p>
+</div>
+</div>
+</footer>
+</body></html>

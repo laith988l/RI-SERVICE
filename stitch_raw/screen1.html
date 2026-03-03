@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RI Service Detail &amp; Request</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#5c3df5",
+            "background-light": "#f6f5f8",
+            "background-dark": "#131022",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "2xl": "1.5rem", // Adding for 24px specific requirement
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 lg:px-10 py-4">
+<div class="flex items-center gap-4 text-slate-900 dark:text-slate-50">
+<div class="size-8 flex items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined">diamond</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">RI Service</h2>
+</div>
+<div class="hidden lg:flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-slate-900 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#">Services</a>
+<a class="text-slate-900 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#">About Us</a>
+<a class="text-slate-900 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#">Case Studies</a>
+<a class="text-slate-900 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25">
+<span class="truncate">Get Started</span>
+</button>
+</div>
+<div class="lg:hidden">
+<button class="flex items-center justify-center p-2 text-slate-900 dark:text-slate-50">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-1 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 mb-8 text-sm">
+<a class="text-primary font-medium hover:underline" href="#">Home</a>
+<span class="material-symbols-outlined text-[16px] text-slate-400">chevron_right</span>
+<a class="text-primary font-medium hover:underline" href="#">Services</a>
+<span class="material-symbols-outlined text-[16px] text-slate-400">chevron_right</span>
+<span class="text-slate-500 dark:text-slate-400 font-medium">Consulting</span>
+</nav>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Content Column -->
+<div class="lg:col-span-7 flex flex-col gap-8">
+<!-- Header Section -->
+<div class="flex flex-col gap-4">
+<h1 class="text-slate-900 dark:text-white text-4xl lg:text-5xl font-black leading-[1.1] tracking-tight">
+              Enterprise Digital Transformation
+            </h1>
+<p class="text-slate-600 dark:text-slate-300 text-lg lg:text-xl font-normal leading-relaxed max-w-[640px]">
+              Modernize your business operations with our comprehensive digital solutions tailored for scale and future growth.
+            </p>
+</div>
+<!-- Hero Image -->
+<div class="w-full aspect-[16/9] overflow-hidden rounded-2xl shadow-xl shadow-primary/5 relative bg-slate-200 dark:bg-slate-800">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Modern corporate office meeting digital transformation" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDfMiisYECS471qkljVhZbVuSzpA9GnHcHJT41RIiuPtMJ44OlyoOyENdNxQsLdRTSosTkzIrRcisyxc6_1EuXBfD-Lm7Zx2m4ga4F983g1_JUowz8hZcpFxRfFk-YYsJXeDoMH_DCQueEx4j4ZRBujfVgGpmA5ldWWNULHkZYcjGeGD2latw97fdeQ_r2CBd-OS6WBiQ3pX4KCzGBgVMnTdgROZ19ETiczczJPmdq1uxvc2HstyO64rkwLhxg3ZKn6MapQcxxPm20');"></div>
+</div>
+<!-- Detailed Content -->
+<div class="prose prose-lg dark:prose-invert prose-headings:font-bold prose-headings:text-slate-900 dark:prose-headings:text-white prose-p:text-slate-600 dark:prose-p:text-slate-300 max-w-full">
+<h3 class="text-2xl font-bold mb-4">Transforming for the Future</h3>
+<p class="mb-6">
+              Our digital transformation service helps organizations fundamentally change how they operate and deliver value to customers. We integrate digital technology into all areas of a business, resulting in fundamental changes to how businesses operate and how they deliver value to customers.
+            </p>
+<p class="mb-6">
+              Beyond technology, it's a cultural change that requires organizations to continually challenge the status quo, experiment, and get comfortable with failure. This sometimes means walking away from long-standing business processes that companies were built upon in favor of relatively new practices that are still being defined.
+            </p>
+<div class="bg-primary/5 dark:bg-primary/10 rounded-2xl p-6 border border-primary/10 my-8">
+<h4 class="text-xl font-bold text-primary mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined">verified</span>
+                Key Benefits
+              </h4>
+<ul class="grid sm:grid-cols-2 gap-4 list-none pl-0">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1 text-sm">check_circle</span>
+<span class="text-sm font-medium">Enhanced Customer Experience</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1 text-sm">check_circle</span>
+<span class="text-sm font-medium">Improved Operational Agility</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1 text-sm">check_circle</span>
+<span class="text-sm font-medium">Data-Driven Decision Making</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1 text-sm">check_circle</span>
+<span class="text-sm font-medium">Increased Workforce Productivity</span>
+</li>
+</ul>
+</div>
+<p>
+              We bring together a team of experts in strategy, technology, and design to help you navigate this complex landscape. Whether you need to modernize legacy systems, implement new cloud solutions, or create a data-driven culture, we have the expertise to help you succeed.
+            </p>
+</div>
+</div>
+<!-- Right Sidebar Column -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- Request Form Card -->
+<div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-700 sticky top-24">
+<div class="mb-6">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Request Service</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Fill out the form below and we will get back to you within 24 hours.</p>
+</div>
+<form class="flex flex-col gap-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400" for="firstName">First Name</label>
+<input class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 text-slate-900 dark:text-white px-4 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-slate-400" id="firstName" placeholder="John" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400" for="lastName">Last Name</label>
+<input class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 text-slate-900 dark:text-white px-4 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-slate-400" id="lastName" placeholder="Doe" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400" for="email">Work Email</label>
+<input class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 text-slate-900 dark:text-white px-4 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-slate-400" id="email" placeholder="john@company.com" type="email"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400" for="phone">Phone Number</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-[20px]">call</span>
+<input class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 text-slate-900 dark:text-white pl-11 pr-4 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-slate-400" id="phone" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400" for="message">Project Details</label>
+<textarea class="w-full rounded-lg border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 text-slate-900 dark:text-white p-4 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-slate-400 resize-none" id="message" placeholder="Tell us about your digital transformation goals..." rows="4"></textarea>
+</div>
+<button class="mt-2 flex h-[56px] w-full items-center justify-center rounded-lg bg-primary text-white text-base font-bold shadow-lg shadow-primary/30 hover:bg-primary/90 hover:shadow-primary/40 hover:-translate-y-0.5 active:translate-y-0 active:shadow-primary/20 transition-all duration-200" type="button">
+                Submit Request
+              </button>
+</form>
+<div class="mt-6 pt-6 border-t border-slate-100 dark:border-slate-700 flex items-center justify-center gap-2 text-xs text-slate-400">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span>Your information is secure and encrypted.</span>
+</div>
+</div>
+<!-- Contact Callout -->
+<div class="bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-5 flex items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Need Immediate Help?</span>
+<span class="text-sm font-medium text-slate-900 dark:text-white">Our experts are available 24/7</span>
+</div>
+<a class="flex items-center gap-2 bg-white dark:bg-slate-700 px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-600 shadow-sm hover:border-primary/50 hover:text-primary transition-colors group" href="tel:+18005550123">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">phone_in_talk</span>
+<span class="font-bold text-slate-900 dark:text-white text-sm group-hover:text-primary">800-555-0123</span>
+</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Simple -->
+<footer class="mt-auto border-t border-slate-200 dark:border-slate-800 py-12 px-6 bg-white dark:bg-slate-900/50">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 text-slate-400 text-sm">
+<span>© 2024 RI Service Inc.</span>
+<span class="mx-2">•</span>
+<a class="hover:text-primary" href="#">Privacy</a>
+<span class="mx-2">•</span>
+<a class="hover:text-primary" href="#">Terms</a>
+</div>
+<div class="flex gap-4">
+<a class="size-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+</a>
+<a class="size-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">mail</span>
+</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

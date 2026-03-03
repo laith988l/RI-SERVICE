@@ -1,0 +1,6 @@
+­ƒÜÇ Starting re-run tests...
+ÔØî re-run tests failed: Error: Code generation and execution is already running. Please wait for it to complete or remove the lock file:  c:\Users\Laith\f1\RI\testsprite_tests\tmp\execution.lock
+    at file:///C:/Users/Laith/AppData/Local/npm-cache/_npx/8ddf6bea01b2519d/node_modules/@testsprite/testsprite-mcp/dist/index.js:136305:23
+    at Command.<anonymous> (file:///C:/Users/Laith/AppData/Local/npm-cache/_npx/8ddf6bea01b2519d/node_modules/@testsprite/testsprite-mcp/dist/index.js:143288:15)
+    at async Command.parseAsync (file:///C:/Users/Laith/AppData/Local/npm-cache/_npx/8ddf6bea01b2519d/node_modules/@testsprite/testsprite-mcp/dist/index.js:141531:6)
+    at async main (file:///C:/Users/Laith/AppData/Local/npm-cache/_npx/8ddf6bea01b2519d/node_modules/@testsprite/testsprite-mcp/dist/index.js:143487:9)

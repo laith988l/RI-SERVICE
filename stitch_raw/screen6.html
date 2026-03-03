@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RI Service Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5c3df5",
+                        "background-light": "#f6f5f8",
+                        "background-dark": "#131022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-slate-900 border-r border-primary/10 hidden lg:flex flex-col">
+<div class="p-8 flex items-center gap-3">
+<div class="bg-primary p-2 rounded text-white">
+<span class="material-symbols-outlined block">diamond</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">RI Admin</h2>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-primary/10 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-primary/10 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">category</span>
+<span class="font-medium">Services</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white shadow-lg shadow-primary/20" href="#">
+<span class="material-symbols-outlined">format_quote</span>
+<span class="font-medium">Testimonials</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-primary/10 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-6 border-t border-primary/5">
+<button class="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-red-500 hover:bg-red-50/50 transition-colors">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-medium">Logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 lg:ml-64 p-4 md:p-8 lg:p-12">
+<div class="max-w-[1200px] mx-auto space-y-8">
+<!-- Top Navbar -->
+<header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-white dark:bg-slate-900 border-none rounded-lg focus:ring-2 focus:ring-primary shadow-sm text-sm" placeholder="Search data, reports, and more..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2.5 rounded-full bg-white dark:bg-slate-900 text-slate-500 hover:text-primary transition-colors shadow-sm relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<div class="flex items-center gap-3 bg-white dark:bg-slate-900 p-1.5 pr-4 rounded-full shadow-sm">
+<div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="Avatar of the site administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-EaXtJJf69ROdPqxaYzTtDpm3vh6O1_PpSjtNRiLXXiQz99mBsoGzTqwcs2b6sP-_tikVmwrlpCXz1gtvQ1CwjSZPb9tOXpJwt2WyQkOSGSjqKC3ZaluNrZS74xnTI185YfbmKIWWR1IV5iCq31tRWL8P1km9fwgKtN60pfRGZ0Z07UmH7Vean21mOipTcb7N5jmnM8eTzhMhQOZrN9ZUxPYuo4LnsZoA4sQhEb_g71FIve1N_aqHxmf-hscs5vQ3Z3dKfRcDhGo"/>
+</div>
+<div class="hidden sm:block">
+<p class="text-xs font-bold text-slate-900 dark:text-white">James Wilson</p>
+<p class="text-[10px] text-slate-500">Super Admin</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Title & Stats -->
+<div class="flex flex-wrap items-end justify-between gap-4">
+<div>
+<h1 class="text-3xl font-black text-slate-900 dark:text-white">Management Console</h1>
+<p class="text-slate-500 mt-1">Review activity and update your service portfolio.</p>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary font-bold rounded-lg hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-lg">download</span>
+                        Export
+                    </button>
+<button class="flex items-center gap-2 px-6 py-2 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 shadow-lg shadow-primary/25 transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+                        New Service
+                    </button>
+</div>
+</div>
+<!-- Dashboard Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-primary/5">
+<p class="text-sm font-medium text-slate-500 mb-1">Total Services</p>
+<div class="flex items-end justify-between">
+<h3 class="text-3xl font-bold">24</h3>
+<span class="text-green-500 text-xs font-bold flex items-center">+4 this month</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-primary/5">
+<p class="text-sm font-medium text-slate-500 mb-1">Pending Testimonials</p>
+<div class="flex items-end justify-between">
+<h3 class="text-3xl font-bold">12</h3>
+<span class="text-primary text-xs font-bold flex items-center">Action required</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-primary/5">
+<p class="text-sm font-medium text-slate-500 mb-1">Customer Satisfaction</p>
+<div class="flex items-end justify-between">
+<h3 class="text-3xl font-bold">98%</h3>
+<div class="flex gap-0.5 text-yellow-400">
+<span class="material-symbols-outlined text-sm fill-current">star</span>
+<span class="material-symbols-outlined text-sm fill-current">star</span>
+<span class="material-symbols-outlined text-sm fill-current">star</span>
+<span class="material-symbols-outlined text-sm fill-current">star</span>
+<span class="material-symbols-outlined text-sm fill-current">star</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Testimonials Management Section -->
+<div class="bg-white dark:bg-slate-900 rounded-lg shadow-sm border border-primary/5 overflow-hidden">
+<div class="p-6 border-b border-primary/5 flex items-center justify-between">
+<h2 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">reviews</span>
+                        Recent Testimonials
+                    </h2>
+<a class="text-sm font-bold text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-primary/5">
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Client</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Service</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Review</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Status</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5">
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden">
+<img alt="Alex Johnson" class="w-full h-full object-cover" data-alt="Client profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCnuMrgZwn45V93Iy-r8PLdvUVzf7LeW8MCCUs5PpbRokZU3XIWJAo7mFYqEZ5jEbRwbzAiNcOBZjrsYN4lZq59gC_GsYac8bMuaFMPG6C602jzQhOyr6HH3RP9XCsjzYZVGAi128FiglC1b_LZG4YPlCviZA1pzGW7Sfcm6E9t7xIbZIopTKjx51Q8WrN8aDWh4_51A8fyMRQkljY4fZQghS3XlEpFUUBOxfo1MZH7g3vmjIp2iqeubA8j_ljPgM2bIFMfBTznoI"/>
+</div>
+<span class="font-medium text-slate-900 dark:text-white">Alex Johnson</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-slate-500 text-sm">Web Development</td>
+<td class="px-6 py-4 text-slate-500 text-sm max-w-xs truncate">"Incredible turnaround time and the quality of code is top-notch. Highly recommend!"</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold bg-yellow-100 text-yellow-700">Pending</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right space-x-2">
+<button class="px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-lg hover:bg-green-600 transition-colors">Accept</button>
+<button class="px-3 py-1 bg-red-100 text-red-600 text-xs font-bold rounded-lg hover:bg-red-200 transition-colors">Reject</button>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden">
+<img alt="Sarah Miller" class="w-full h-full object-cover" data-alt="Client profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk6D7ImD4ij6bRcKDfrKjAAbF3fKv2RtzN3zM_rrnZKFUPF0Q1ZcXzmNuhfbkhQJwFxJ9tAw8CcNrcmTpS__cLA5vrjUTAIXTJiKfH-a79cvIK_ctxuSiJEeBTwnLWpB1t_njkEfav6tQfxvcCnk8e6zXXljymUATSMJ3gc4RjV8wsCkNvrthLXNJHvOZ2OB73YVS62LNSUZEI5RG8J-0RZgFtmvpcvcOBuYfsEd8FlTnf0-JsdR5pQogiTJW72xeSk9iB6qhtUuo"/>
+</div>
+<span class="font-medium text-slate-900 dark:text-white">Sarah Miller</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-slate-500 text-sm">UI/UX Design</td>
+<td class="px-6 py-4 text-slate-500 text-sm max-w-xs truncate">"Our branding has never looked better. The design system is so easy to use."</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold bg-green-100 text-green-700">Approved</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right space-x-2">
+<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Manage Services Grid -->
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">list_alt</span>
+                        Active Services
+                    </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Service Card 1 -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-primary/5 flex flex-col group">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">code</span>
+</div>
+<h4 class="text-lg font-bold mb-1">Full-Stack Development</h4>
+<p class="text-slate-500 text-sm mb-6 line-clamp-2">Custom scalable web solutions built with modern frameworks and cloud infrastructure.</p>
+<div class="mt-auto flex items-center justify-between border-t border-primary/5 pt-4">
+<span class="text-primary font-bold">$120/hr</span>
+<div class="flex gap-2">
+<button class="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg text-slate-600 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg leading-none">edit</span>
+</button>
+<button class="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg text-slate-600 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-lg leading-none">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm border border-primary/5 flex flex-col group">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">brush</span>
+</div>
+<h4 class="text-lg font-bold mb-1">Brand Identity Design</h4>
+<p class="text-slate-500 text-sm mb-6 line-clamp-2">Visual storytelling through logo design, typography, and comprehensive brand guidelines.</p>
+<div class="mt-auto flex items-center justify-between border-t border-primary/5 pt-4">
+<span class="text-primary font-bold">Fixed Price</span>
+<div class="flex gap-2">
+<button class="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg text-slate-600 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg leading-none">edit</span>
+</button>
+<button class="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg text-slate-600 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-lg leading-none">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Add New Card Placeholder -->
+<button class="border-2 border-dashed border-primary/20 rounded-lg p-6 flex flex-col items-center justify-center text-slate-400 hover:text-primary hover:border-primary/40 hover:bg-primary/5 transition-all group">
+<span class="material-symbols-outlined text-4xl mb-2 group-hover:scale-110 transition-transform">add_circle</span>
+<span class="font-bold">Add New Service</span>
+</button>
+</div>
+</div>
+<!-- Footer -->
+<footer class="pt-8 text-center text-slate-400 text-sm">
+<p>© 2024 RI Service Admin Console. All rights reserved.</p>
+</footer>
+</div>
+</main>
+</div>
+</body></html>

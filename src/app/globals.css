@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+ --color-primary: #3b82f6;
+ --color-primary-dark: #2563eb;
+ --color-secondary: #0f172a;
+ --color-accent: #f8fafc;
+ --color-background-light: #f1f5f9;
+ --color-background-dark: #f8fafc;
+ --font-display: var(--font-inter), sans-serif;
+
+ --radius-lg: 1.5rem;
+ --radius-xl: 2rem;
+ --radius-2xl: 3rem;
+}
+
+@layer base {
+ html {
+ scroll-behavior: smooth;
+ }
+
+ body {
+ @apply bg-background-light text-secondary antialiased;
+ }
+}

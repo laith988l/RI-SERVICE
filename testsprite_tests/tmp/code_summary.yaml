@@ -1,0 +1,73 @@
+version: "2"
+type: frontend
+tech_stack:
+  - typescript
+  - next.js
+  - tailwindcss
+  - react
+  - supabase
+routes:
+  - path: /
+    file: src/app/(main)/page.tsx
+    auth_required: false
+    description: Home page featuring services and testimonials
+  - path: /about
+    file: src/app/(main)/about/page.tsx
+    auth_required: false
+    description: About page
+  - path: /contact
+    file: src/app/(main)/contact/page.tsx
+    auth_required: false
+    description: Contact form
+  - path: /services
+    file: src/app/(main)/services/page.tsx
+    auth_required: false
+    description: Services listing
+  - path: /login
+    file: src/app/(auth)/login/page.tsx
+    auth_required: false
+    description: Admin login page
+  - path: /admin
+    file: src/app/(auth)/admin/page.tsx
+    auth_required: true
+    description: Admin dashboard
+features:
+  - name: User Login
+    description: Login with email and password credentials
+    files:
+      - src/app/(auth)/login/page.tsx
+    entry_route: /login
+    user_interactions:
+      - Fill email input field
+      - Fill password input field
+      - Click Login button to submit
+      - See error message on invalid credentials
+      - Navigate to /admin on success
+    api_calls:
+      - method: POST
+        endpoint: /api/auth/login
+    auth_required: false
+  - name: Admin Dashboard
+    description: Manage content like testimonials and services
+    files:
+      - src/app/(auth)/admin/DashboardClient.tsx
+      - src/app/(auth)/admin/page.tsx
+    entry_route: /admin
+    user_interactions:
+      - View list of resources
+      - Add new resources
+      - Edit resources
+      - Delete resources
+    auth_required: true
+  - name: Contact Form
+    description: Send a message via contact form
+    files:
+      - src/app/(main)/contact/page.tsx
+    entry_route: /contact
+    user_interactions:
+      - Fill name field
+      - Fill email field
+      - Fill message field
+      - Submit form
+    auth_required: false
+known_limitations: []

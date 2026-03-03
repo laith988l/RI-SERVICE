@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5c3df5",
+                        "background-light": "#f4f5f7",
+                        "background-dark": "#131022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "1.5rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased">
+<div class="flex min-h-screen flex-col items-center justify-center p-4">
+<div class="w-full max-w-md bg-white dark:bg-slate-900 rounded-lg shadow-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+<div class="p-8 md:p-12">
+<div class="flex flex-col items-center mb-8">
+<div class="flex items-center gap-3 text-primary mb-4">
+<div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center">
+<svg class="size-6" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-2xl font-bold leading-tight tracking-tight">RI Service</h2>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-base">Welcome back to RI Service</p>
+</div>
+<form class="space-y-6">
+<div>
+<label class="block text-slate-900 dark:text-slate-100 text-sm font-semibold mb-2" for="email">
+                            Email
+                        </label>
+<input class="block w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-900 dark:text-slate-100 px-4 py-3 text-base focus:border-primary focus:ring-primary placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-all" id="email" placeholder="Enter your email" type="email"/>
+</div>
+<div>
+<div class="flex items-center justify-between mb-2">
+<label class="block text-slate-900 dark:text-slate-100 text-sm font-semibold" for="password">
+                                Password
+                            </label>
+<a class="text-primary text-sm font-medium hover:underline" href="#">
+                                Forgot password?
+                            </a>
+</div>
+<div class="relative">
+<input class="block w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-900 dark:text-slate-100 px-4 py-3 pr-12 text-base focus:border-primary focus:ring-primary placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-all" id="password" placeholder="Enter your password" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" type="button">
+<span class="material-symbols-outlined text-[22px]">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary" id="remember" type="checkbox"/>
+<label class="ml-2 block text-sm text-slate-600 dark:text-slate-400" for="remember">
+                            Keep me logged in
+                        </label>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-lg transition-all transform active:scale-[0.98] shadow-lg shadow-primary/20" type="submit">
+                        Login
+                    </button>
+</form>
+<div class="mt-8 text-center">
+<p class="text-slate-600 dark:text-slate-400 text-sm">
+                        Don't have an account? 
+                        <a class="text-primary font-semibold hover:underline" href="#">Sign up for free</a>
+</p>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/30 px-8 py-4 border-t border-slate-100 dark:border-slate-800 flex justify-center gap-6">
+<a class="text-xs text-slate-400 hover:text-slate-600 transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs text-slate-400 hover:text-slate-600 transition-colors" href="#">Terms of Service</a>
+<a class="text-xs text-slate-400 hover:text-slate-600 transition-colors" href="#">Help Center</a>
+</div>
+</div>
+<div class="mt-8 flex items-center gap-2 opacity-40">
+<span class="text-slate-500 text-sm">© 2024 RI Service Corporation</span>
+</div>
+</div>
+</body></html>

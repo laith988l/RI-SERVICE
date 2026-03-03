@@ -1,0 +1,20 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3000",
+  "loginUser": "admin@riservice.de ",
+  "loginPassword": "admin123",
+  "executionArgs": {
+    "projectName": "RI",
+    "projectPath": "c:\\Users\\Laith\\f1\\RI",
+    "testIds": [],
+    "additionalInstruction": "",
+    "serverMode": "production",
+    "envs": {
+      "API_KEY": "sk-user-HA-oIc06cFLq37ut3sgF9ec8hKf1U9LZ5yJ7C_lTgdVVprYumRqsGyTKhvGNHY-HZ1pwgItuuADnuvqnl6Jm8D2HEhBUvD-CdkAq_lG4cNAEbNCrvV2gn6go7PdE3_G6Lhg"
+    }
+  },
+  "serverPort": 54790,
+  "proxy": "http://81be4ab9-4a5b-4548-b820-cc783978298b:IvxQyWgWwrkmkztL7YRY31oZMPg92SbM@tun.testsprite.com:8080"
+}
