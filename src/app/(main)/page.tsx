@@ -77,7 +77,7 @@ export default function HomePage() {
                         <div className="flex flex-wrap gap-4 justify-center">
                             <Link href="/services" className="bg-white flex items-center justify-center text-primary hover:bg-gray-100 font-bold py-3.5 px-8 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl translate-y-0 hover:-translate-y-0.5">
                                 Unsere Leistungen </Link>
-                            <Link href="/contat" className="bg-transparent flex items-center justify-center border border-white text-white hover:bg-white/10 font-bold py-3.5 px-8 rounded-full transition-colors duration-200">
+                            <Link href="/contact" className="bg-transparent flex items-center justify-center border border-white text-white hover:bg-white/10 font-bold py-3.5 px-8 rounded-full transition-colors duration-200">
                                 Kontaktieren Sie uns </Link>
                         </div>
                     </div>
@@ -327,7 +327,7 @@ export default function HomePage() {
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">Bereit für den nächsten Schritt?</h2>
                         <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">Kostenlose Besichtigung möglich.
                             Individuelles Angebot innerhalb von 24 Stunden.</p>
-                        <Link href="/services/request" className="bg-white flex items-center justify-center w-fit mx-auto text-primary hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
+                        <Link href="/contact" className="bg-white flex items-center justify-center w-fit mx-auto text-primary hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
                             Kontaktieren Sie uns </Link>
                     </div>
                     <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
