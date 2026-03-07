@@ -14,8 +14,10 @@ function RequestFormContent() {
     const [servicesList, setServicesList] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [status, setStatus] = useState<'idle' | 'submitting' | 'error'>('idle');
+    const [captcha, setCaptcha] = useState({ num1: 0, num2: 0 });
 
     useEffect(() => {
+        setCaptcha({ num1: Math.floor(Math.random() * 10) + 1, num2: Math.floor(Math.random() * 10) + 1 });
         getPublicServices().then(data => {
             if (data) setServicesList(data);
             setIsLoading(false);
@@ -36,8 +38,18 @@ function RequestFormContent() {
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        setStatus('submitting');
         const formData = new FormData(e.currentTarget);
+        
+        if (formData.get('bot_field_honey')) return;
+        
+        const captchaAnswer = formData.get('captcha_answer');
+        if (parseInt(captchaAnswer as string) !== captcha.num1 + captcha.num2) {
+            alert('Bitte berechnen Sie die Sicherheitsaufgabe korrekt.');
+            setCaptcha({ num1: Math.floor(Math.random() * 10) + 1, num2: Math.floor(Math.random() * 10) + 1 });
+            return;
+        }
+
+        setStatus('submitting');
         try {
             await submitContactRequest(formData);
             router.push('/services/success');
@@ -117,6 +129,7 @@ function RequestFormContent() {
                             <p className="text-gray-600 text-sm">Füllen Sie das Formular aus und wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
                         </div>
                         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                            <input type="text" name="bot_field_honey" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 <label className="flex flex-col gap-2">
                                     <span className="text-sm font-medium text-secondary">Vorname <span className="text-red-500">*</span></span>
@@ -169,6 +182,15 @@ function RequestFormContent() {
                                     Ich habe die <Link className="text-primary hover:underline" href="/datenschutz">Datenschutzerklärung</Link> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu.
                                 </span>
                             </label>
+
+                            {/* Math Captcha */}
+                            <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100 mt-2 flex flex-col md:flex-row gap-4 items-center justify-between">
+                                <span className="text-sm font-bold text-secondary flex items-center gap-2 w-full md:w-auto">
+                                    <span className="material-symbols-outlined text-primary">security</span>
+                                    Spamschutz: Was ist {captcha.num1} + {captcha.num2}?
+                                </span>
+                                <input name="captcha_answer" required type="number" placeholder="Ergebnis..." className="w-full md:w-32 h-10 px-4 rounded-lg bg-white border border-gray-200 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 outline-none text-secondary transition-all text-center font-bold" />
+                            </div>
 
                             {status === 'error' && <p className="text-red-500 text-sm">Fehler beim Senden der Anfrage. Bitte versuchen Sie es später erneut.</p>}
 
