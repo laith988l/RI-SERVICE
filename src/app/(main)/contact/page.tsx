@@ -154,7 +154,7 @@ export default function ContactPage() {
                                         <input name="first_name" required className="w-full h-12 px-4 rounded-lg bg-background-light border border-transparent focus:bg-white focus:border-primary/50 focus:ring-2 focus:ring-primary/20 placeholder-gray-400 outline-none text-secondary transition-all" placeholder="Max Mustermann" type="text" />
                                     </label>
                                     <label className="flex flex-col gap-2">
-                                        <span className="text-sm font-medium text-secondary">Firmenname (optional)</span>
+                                        <span className="text-sm font-medium text-secondary">Firmenname (falls vorhanden)</span>
                                         <input name="company_name" className="w-full h-12 px-4 rounded-lg bg-background-light border border-transparent focus:bg-white focus:border-primary/50 focus:ring-2 focus:ring-primary/20 placeholder-gray-400 outline-none text-secondary transition-all" placeholder="Firma GmbH" type="text" />
                                     </label>
                                 </div>
@@ -258,7 +258,7 @@ export default function ContactPage() {
                         </div>
 
                         <label className="flex flex-col gap-2">
-                            <span className="text-sm font-medium text-secondary">Firmenname (optional)</span>
+                            <span className="text-sm font-medium text-secondary">Firmenname (falls vorhanden)</span>
                             <input name="company_name" className="w-full h-12 px-4 rounded-lg bg-background-light border border-transparent focus:bg-white focus:border-primary/50 focus:ring-2 focus:ring-primary/20 placeholder-gray-400 outline-none text-secondary transition-all" placeholder="Ihre Firma GmbH" type="text" />
                         </label>
 

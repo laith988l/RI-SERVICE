@@ -46,10 +46,7 @@ export default function ImpressumPage() {
                     </p>
 
 
-                    <h2 className="text-2xl mt-8 mb-4">Kleinunternehmerregelung</h2>
-                    <p>
-                        Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.
-                    </p>
+
 
                     <h2 className="text-2xl mt-8 mb-4">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
                     <p>

@@ -180,7 +180,7 @@ export default function DashboardClient({ initialData }: { initialData: any }) {
                     {/* OVERVIEW DASHBOARD */}
                     {activeTab === 'dashboard' && (
                         <>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
                                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                                     <p className="text-sm font-medium text-slate-500 mb-1">Total Services</p>
                                     <div className="flex items-end justify-between">
@@ -195,7 +195,19 @@ export default function DashboardClient({ initialData }: { initialData: any }) {
                                     </div>
                                 </div>
                                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                                    <p className="text-sm font-medium text-slate-500 mb-1">Average Feedback Rating</p>
+                                    <p className="text-sm font-medium text-slate-500 mb-1">Total Contact Requests</p>
+                                    <div className="flex items-end justify-between">
+                                        <h3 className="text-3xl font-bold text-blue-600">{contactRequests.length}</h3>
+                                    </div>
+                                </div>
+                                <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                                    <p className="text-sm font-medium text-slate-500 mb-1">Total Feedback</p>
+                                    <div className="flex items-end justify-between">
+                                        <h3 className="text-3xl font-bold text-purple-600">{feedbacks.length}</h3>
+                                    </div>
+                                </div>
+                                <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                                    <p className="text-sm font-medium text-slate-500 mb-1">Average Rating</p>
                                     <div className="flex items-end justify-between">
                                         <h3 className="text-3xl font-bold text-secondary">{avgRating} / 5</h3>
                                         <div className="flex gap-0.5 text-yellow-400">
@@ -373,8 +385,8 @@ export default function DashboardClient({ initialData }: { initialData: any }) {
                     {activeTab === 'testimonials' && (
                         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                             <div className="overflow-x-auto">
-                                <table className="w-full text-left">
-                                    <thead>
+                                <table className="w-full text-left block md:table">
+                                    <thead className="hidden md:table-header-group">
                                         <tr className="bg-gray-50">
                                             <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Client</th>
                                             <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Review</th>
@@ -383,24 +395,30 @@ export default function DashboardClient({ initialData }: { initialData: any }) {
                                             <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 text-right">Actions</th>
                                         </tr>
                                     </thead>
-                                    <tbody className="divide-y divide-blue-600/5">
+                                    <tbody className="block md:table-row-group divide-none md:divide-y md:divide-blue-600/5 space-y-4 md:space-y-0 p-4 md:p-0">
                                         {testimonials.map((t: any) => (
-                                            <tr key={t.id} className="hover:bg-gray-50 transition-colors">
-                                                <td className="px-6 py-4 whitespace-nowrap">
+                                            <tr key={t.id} className="hover:bg-gray-50 transition-colors block md:table-row bg-white border border-gray-100 md:border-none rounded-xl md:rounded-none overflow-hidden shadow-sm md:shadow-none">
+                                                <td className="px-6 py-4 block md:table-cell border-b border-gray-50 md:border-none">
+                                                    <div className="md:hidden text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Client</div>
                                                     <div className="flex flex-col">
                                                         <span className="font-medium text-slate-900 ">{t.name}</span>
                                                         <span className="text-xs text-slate-500">{t.title}</span>
                                                     </div>
                                                 </td>
-                                                <td className="px-6 py-4 text-slate-500 text-sm max-w-md truncate">"{t.quote}"</td>
-                                                <td className="px-6 py-4 whitespace-nowrap">
+                                                <td className="px-6 py-4 text-slate-500 text-sm md:max-w-md md:truncate block md:table-cell border-b border-gray-50 md:border-none">
+                                                    <div className="md:hidden text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Review</div>
+                                                    "{t.quote}"
+                                                </td>
+                                                <td className="px-6 py-4 block md:table-cell border-b border-gray-50 md:border-none">
+                                                    <div className="md:hidden text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Rating</div>
                                                     <div className="flex gap-0.5 text-yellow-500">
                                                         {[...Array(5)].map((_, i) => (
                                                             <span key={i} className="material-symbols-outlined text-sm" style={{ fontVariationSettings: i < (t.rating || 5) ? "'FILL' 1" : "'FILL' 0" }}>star</span>
                                                         ))}
                                                     </div>
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap">
+                                                <td className="px-6 py-4 block md:table-cell border-b border-gray-50 md:border-none">
+                                                    <div className="md:hidden text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Status</div>
                                                     {t.status === 'approved' ? (
                                                         <div className="flex items-center gap-2">
                                                             <span className="px-3 py-1 rounded-full text-[10px] font-bold bg-green-100 text-green-700">Approved</span>
@@ -417,7 +435,7 @@ export default function DashboardClient({ initialData }: { initialData: any }) {
                                                         <span className="px-3 py-1 rounded-full text-[10px] font-bold bg-yellow-100 text-yellow-700">Pending</span>
                                                     )}
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-right space-x-2">
+                                                <td className="px-6 py-4 block md:table-cell text-right flex justify-end items-center gap-2 bg-gray-50 md:bg-transparent">
                                                     {t.status !== 'approved' && (
                                                         <button onClick={() => handleTestimonialAction(t.id, 'approved')} className="px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-lg hover:bg-green-600 transition-colors">Accept</button>
                                                     )}
@@ -464,8 +482,8 @@ export default function DashboardClient({ initialData }: { initialData: any }) {
                     {activeTab === 'contact' && (
                         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                             <div className="overflow-x-auto">
-                                <table className="w-full text-left">
-                                    <thead>
+                                <table className="w-full text-left block md:table">
+                                    <thead className="hidden md:table-header-group">
                                         <tr className="bg-gray-50">
                                             <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500" style={{ width: '25%' }}>Client</th>
                                             <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500" style={{ width: '25%' }}>Service Interest</th>
@@ -473,27 +491,30 @@ export default function DashboardClient({ initialData }: { initialData: any }) {
                                             <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 text-right" style={{ width: '10%' }}>Actions</th>
                                         </tr>
                                     </thead>
-                                    <tbody className="divide-y divide-blue-600/5">
+                                    <tbody className="block md:table-row-group divide-none md:divide-y md:divide-blue-600/5 space-y-4 md:space-y-0 p-4 md:p-0">
                                         {contactRequests.map((req: any) => (
-                                            <tr key={req.id} className="hover:bg-gray-50 transition-colors">
-                                                <td className="px-6 py-4 whitespace-nowrap">
+                                            <tr key={req.id} className="hover:bg-gray-50 transition-colors block md:table-row bg-white border border-gray-100 md:border-none rounded-xl md:rounded-none overflow-hidden shadow-sm md:shadow-none">
+                                                <td className="px-6 py-4 block md:table-cell border-b border-gray-50 md:border-none">
+                                                    <div className="md:hidden text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Client</div>
                                                     <div className="flex flex-col">
                                                         <span className="font-bold text-slate-900 text-sm">{req.first_name} {req.last_name}</span>
                                                         <a href={`mailto:${req.email}`} className="text-xs text-blue-600 hover:underline">{req.email}</a>
                                                         {req.phone && <a href={`tel:${req.phone}`} className="text-xs text-slate-500 hover:text-slate-700">{req.phone}</a>}
                                                     </div>
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap">
+                                                <td className="px-6 py-4 block md:table-cell border-b border-gray-50 md:border-none">
+                                                    <div className="md:hidden text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Service Interest</div>
                                                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                                                         {req.service_interest || 'General'}
                                                     </span>
                                                 </td>
-                                                <td className="px-6 py-4">
-                                                    <p className="text-sm text-slate-700 line-clamp-3">{req.message}</p>
+                                                <td className="px-6 py-4 block md:table-cell border-b border-gray-50 md:border-none">
+                                                    <div className="md:hidden text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Message</div>
+                                                    <p className="text-sm text-slate-700 line-clamp-3 md:line-clamp-none">{req.message}</p>
                                                     <p className="text-[10px] text-slate-400 mt-1">{new Date(req.created_at).toLocaleDateString()}</p>
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-right">
-                                                    <button onClick={async () => { await deleteContactRequest(req.id); showToast("Operation Completed Successfully"); sessionStorage.setItem('adminDashboardTab', activeTab); setTimeout(() => window.location.reload(), 1000); }} className="p-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg flex items-center justify-center transition-colors ml-auto" title="Delete Request">
+                                                <td className="px-6 py-4 block md:table-cell text-right flex justify-end items-center bg-gray-50 md:bg-transparent">
+                                                    <button onClick={async () => { await deleteContactRequest(req.id); showToast("Operation Completed Successfully"); sessionStorage.setItem('adminDashboardTab', activeTab); setTimeout(() => window.location.reload(), 1000); }} className="p-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg flex items-center justify-center transition-colors ml-auto md:ml-0" title="Delete Request">
                                                         <span className="material-symbols-outlined text-[18px]">delete</span>
                                                     </button>
                                                 </td>
