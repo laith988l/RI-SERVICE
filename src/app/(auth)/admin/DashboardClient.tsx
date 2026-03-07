@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { updateTestimonialStatus, deleteTestimonial, deleteFeedback, addService, updateService, deleteService, approveFeedbackAsTestimonial, deleteContactRequest, toggleTestimonialVisibility, toggleServiceVisibility } from '@/app/actions/admin';
 
 export default function DashboardClient({ initialData }: { initialData: any }) {
@@ -11,15 +11,14 @@ export default function DashboardClient({ initialData }: { initialData: any }) {
     const [contactRequests, setContactRequests] = useState(initialData.contact_requests || []);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    import('react').then(React => {
-        React.useEffect(() => {
-            const stored = sessionStorage.getItem('adminDashboardTab');
-            if (stored) setActiveTab(stored);
-        }, []);
-    });
+    useEffect(() => {
+        const stored = sessionStorage.getItem('adminDashboardTab');
+        if (stored) setActiveTab(stored);
+    }, []);
 
     const [isEditingService, setIsEditingService] = useState(false);
     const [currentService, setCurrentService] = useState<any>(null);
+    const [featuresList, setFeaturesList] = useState<string[]>(['']);
     const [toastMessage, setToastMessage] = useState<string | null>(null);
     const showToast = (msg: string) => {
         setToastMessage(msg);
@@ -41,9 +40,9 @@ export default function DashboardClient({ initialData }: { initialData: any }) {
         setIsMobileMenuOpen(false);
     };
 
-    const handleServiceSubmit = async (e: React.FormEvent) => {
+    const handleServiceSubmit = async (e: React.FormEvent, customFormData?: FormData) => {
         e.preventDefault();
-        const formData = new FormData(e.target as HTMLFormElement);
+        const formData = customFormData || new FormData(e.target as HTMLFormElement);
 
         // Prevent Next.js "Failed to fetch" errors by not sending empty file objects
         const imageFile = formData.get('image') as File;
@@ -212,7 +211,11 @@ export default function DashboardClient({ initialData }: { initialData: any }) {
                     {activeTab === 'services' && !isEditingService && (
                         <div className="space-y-4">
                             <div className="flex justify-end">
-                                <button onClick={() => { setCurrentService(null); setIsEditingService(true); }} className="flex items-center gap-2 px-6 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-600/90 shadow-lg shadow-blue-600/25 transition-all">
+                                <button onClick={() => { 
+                                    setCurrentService(null); 
+                                    setFeaturesList(['']); 
+                                    setIsEditingService(true); 
+                                }} className="flex items-center gap-2 px-6 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-600/90 shadow-lg shadow-blue-600/25 transition-all">
                                     <span className="material-symbols-outlined text-lg">add</span>
                                     New Service
                                 </button>
@@ -238,7 +241,27 @@ export default function DashboardClient({ initialData }: { initialData: any }) {
                                                 </span>
                                             </div>
                                             <div className="flex gap-2">
-                                                <button onClick={() => { setCurrentService(service); setIsEditingService(true); }} className="p-2 bg-slate-50 rounded-lg text-slate-600 hover:text-blue-600 transition-colors">
+                                                <button onClick={() => { 
+                                                    setCurrentService(service); 
+                                                    // Parse features gracefully into string array
+                                                    let initialFeatures = [''];
+                                                    if (Array.isArray(service.features)) {
+                                                        initialFeatures = service.features.map(String);
+                                                    } else if (typeof service.features === 'string') {
+                                                        try {
+                                                            const parsed = JSON.parse(service.features);
+                                                            if (Array.isArray(parsed)) {
+                                                                initialFeatures = parsed.map(String);
+                                                            } else {
+                                                                initialFeatures = [service.features];
+                                                            }
+                                                        } catch {
+                                                            initialFeatures = service.features ? [service.features] : [''];
+                                                        }
+                                                    }
+                                                    setFeaturesList(initialFeatures.length ? initialFeatures : ['']);
+                                                    setIsEditingService(true); 
+                                                }} className="p-2 bg-slate-50 rounded-lg text-slate-600 hover:text-blue-600 transition-colors">
                                                     <span className="material-symbols-outlined text-lg leading-none">edit</span>
                                                 </button>
                                                 <button onClick={async () => { await deleteService(service.id); sessionStorage.setItem('adminDashboardTab', activeTab); window.location.reload(); }} className="p-2 bg-slate-50 rounded-lg text-slate-600 hover:text-red-500 transition-colors">
@@ -256,7 +279,13 @@ export default function DashboardClient({ initialData }: { initialData: any }) {
                     {activeTab === 'services' && isEditingService && (
                         <div className="bg-white p-8 rounded-lg shadow-sm border border-blue-600/5 max-w-2xl">
                             <h2 className="text-2xl font-bold mb-6">{currentService ? 'Edit Service' : 'Add New Service'}</h2>
-                            <form onSubmit={handleServiceSubmit} className="flex flex-col gap-4">
+                            <form onSubmit={(e) => {
+                                e.preventDefault();
+                                const formData = new FormData(e.target as HTMLFormElement);
+                                // Override the default form data features with the json stringified featuresList
+                                formData.set('features', JSON.stringify(featuresList.filter(f => f.trim() !== '')));
+                                handleServiceSubmit(e as unknown as React.FormEvent, formData);
+                            }} className="flex flex-col gap-4">
                                 <label className="flex flex-col gap-1">
                                     <span className="text-sm font-medium">Title</span>
                                     <input name="title" required defaultValue={currentService?.title} className="p-3 bg-slate-50 rounded border border-gray-200 " />
@@ -294,28 +323,43 @@ export default function DashboardClient({ initialData }: { initialData: any }) {
                                     <span className="text-sm font-medium">Long Description (Request Page)</span>
                                     <textarea name="long_description" defaultValue={currentService?.long_description} className="p-3 h-32 bg-slate-50 rounded border border-gray-200 " />
                                 </label>
-                                <label className="flex flex-col gap-1">
-                                    <span className="text-sm font-medium">Features (comma separated: Feat 1, Feat 2)</span>
-                                    <textarea
-                                        name="features"
-                                        required
-                                        defaultValue={
-                                            Array.isArray(currentService?.features)
-                                                ? currentService.features.join(', ')
-                                                : (typeof currentService?.features === 'string'
-                                                    ? (() => {
-                                                        try {
-                                                            const parsed = JSON.parse(currentService.features);
-                                                            return Array.isArray(parsed) ? parsed.join(', ') : currentService.features;
-                                                        } catch {
-                                                            return currentService.features;
-                                                        }
-                                                    })()
-                                                    : '')
-                                        }
-                                        className="p-3 bg-slate-50 rounded border border-gray-200 "
-                                    />
-                                </label>
+                                <div className="flex flex-col gap-2">
+                                    <span className="text-sm font-medium">Features</span>
+                                    {featuresList.map((feature: string, index: number) => (
+                                        <div key={index} className="flex gap-2 items-center">
+                                            <input 
+                                                type="text" 
+                                                value={feature} 
+                                                onChange={(e) => {
+                                                    const newFeatures = [...featuresList];
+                                                    newFeatures[index] = e.target.value;
+                                                    setFeaturesList(newFeatures);
+                                                }}
+                                                className="flex-1 p-3 bg-slate-50 rounded border border-gray-200" 
+                                                placeholder={`Feature ${index + 1}`} 
+                                            />
+                                            <button 
+                                                type="button" 
+                                                onClick={() => {
+                                                    const newFeatures = featuresList.filter((_: string, i: number) => i !== index);
+                                                    setFeaturesList(newFeatures.length ? newFeatures : ['']);
+                                                }}
+                                                className="p-3 text-red-500 hover:bg-red-50 rounded border border-red-100 transition-colors flex items-center justify-center"
+                                                title="Remove Feature"
+                                            >
+                                                <span className="material-symbols-outlined text-sm">close</span>
+                                            </button>
+                                        </div>
+                                    ))}
+                                    <button 
+                                        type="button" 
+                                        onClick={() => setFeaturesList([...featuresList, ''])}
+                                        className="flex items-center gap-2 text-primary font-medium hover:bg-primary/5 p-2 rounded w-fit transition-colors mt-1"
+                                    >
+                                        <span className="material-symbols-outlined text-sm">add</span>
+                                        Add Feature
+                                    </button>
+                                </div>
                                 <div className="flex gap-4 mt-4">
                                     <button type="button" onClick={() => setIsEditingService(false)} className="px-6 py-2 bg-gray-200 text-gray-800 font-bold rounded hover:bg-gray-300">Cancel</button>
                                     <button type="submit" className="px-6 py-2 bg-blue-600 text-white font-bold rounded shadow-lg shadow-blue-600/20 hover:bg-blue-600/90">Save Service</button>

@@ -41,7 +41,7 @@ export default function ImpressumPage() {
 
                     <h2 className="text-2xl mt-8 mb-4">Contact</h2>
                     <p>
-                        <strong>E-Mail:</strong> <a href="mailto:Info@RIservice.de">Info@RIservice.de</a><br />
+                        <strong>E-Mail:</strong> <a href="mailto:info@ri-service24.de">info@ri-service24.de</a><br />
                         <strong>Telefon:</strong> +49 15563 322378
                     </p>
 

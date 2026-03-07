@@ -34,7 +34,7 @@ export default function Footer() {
                                 <span className="sr-only">Facebook</span>
                                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg>
                             </a>
-                            <a className="text-gray-400 hover:text-primary transition-colors flex items-center justify-center h-8 w-8" href="mailto:info@ri-service.de">
+                            <a className="text-gray-400 hover:text-primary transition-colors flex items-center justify-center h-8 w-8" href="mailto:info@ri-service24.de">
                                 <span className="sr-only">Email</span>
                                 <span className="material-symbols-outlined !text-[24px]">mail</span>
                             </a>
@@ -69,7 +69,7 @@ export default function Footer() {
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="material-symbols-outlined text-primary text-[20px]">mail</span>
-                                <a className="text-gray-500 hover:text-primary" href="mailto:info@ri-service.de">[EMAIL_ADDRESS]</a>
+                                <a className="text-gray-500 hover:text-primary" href="mailto:info@ri-service24.de">info@ri-service24.de</a>
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="material-symbols-outlined text-primary text-[20px]">call</span>

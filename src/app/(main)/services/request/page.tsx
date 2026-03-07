@@ -67,9 +67,14 @@ function RequestFormContent() {
                         <h1 className="text-4xl md:text-5xl font-black text-secondary leading-[1.1] tracking-tight">
                             {activeService.title}
                         </h1>
-                        <p className="text-lg text-gray-600 leading-relaxed max-w-[540px]">
-                            {activeService.long_description || activeService.description}
+                        <p className="text-xl text-gray-800 font-medium leading-relaxed max-w-[540px]">
+                            {activeService.description}
                         </p>
+                        {activeService.long_description && activeService.long_description !== activeService.description && (
+                            <p className="text-lg text-gray-600 leading-relaxed max-w-[540px]">
+                                {activeService.long_description}
+                            </p>
+                        )}
                     </div>
 
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-lg relative bg-gray-100 flex items-center justify-center">
@@ -92,7 +97,7 @@ function RequestFormContent() {
                                     features = typeof activeService.features === 'string' ? JSON.parse(activeService.features) : activeService.features;
                                 } catch (e) { }
                                 const benefits = (Array.isArray(features) ? features : activeService.benefits) || [];
-                                return benefits.slice(0, 3).map((benefit: string, index: number) => (
+                                return benefits.map((benefit: string, index: number) => (
                                     <li key={index} className="flex items-start gap-3">
                                         <span className="flex items-center justify-center size-6 rounded-full bg-primary/10 text-primary flex-shrink-0 mt-0.5">
                                             <span className="material-symbols-outlined text-sm font-bold">check</span>

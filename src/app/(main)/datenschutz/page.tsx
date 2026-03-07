@@ -34,7 +34,7 @@ export default function DatenschutzPage() {
 
                     </p>
                     <p>
-                        <strong>E-Mail:</strong> <a href="mailto:Info@RIservice.de">Info@RIservice.de</a><br />
+                        <strong>E-Mail:</strong> <a href="mailto:info@ri-service24.de">info@ri-service24.de</a><br />
                         <strong>Telefon:</strong> +49 15563 322378
                     </p>
 
@@ -72,7 +72,7 @@ export default function DatenschutzPage() {
                     </ul>
                     <p>Eine Veröffentlichung erfolgt nur nach Ihrer ausdrücklichen Einwilligung.<br />
                         Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. a DSGVO</strong>.</p>
-                    <p>Sie können die Löschung Ihrer Bewertung jederzeit per E-Mail an <a href="mailto:Info@RIservice.de">Info@RIservice.de</a> beantragen.</p>
+                    <p>Sie können die Löschung Ihrer Bewertung jederzeit per E-Mail an <a href="mailto:info@ri-service24.de">info@ri-service24.de</a> beantragen.</p>
 
                     <h2 className="text-2xl mt-8 mb-4">5. Cookies</h2>
                     <p>Unsere Website verwendet ausschließlich technisch notwendige Cookies zur Sicherstellung der Funktionalität (z. B. Administrator-Login). Es erfolgt keine Nutzung von Analyse- oder Marketing-Tools.</p>
@@ -89,7 +89,7 @@ export default function DatenschutzPage() {
                         <li>Einschränkung der Verarbeitung</li>
                         <li>Widerspruch</li>
                     </ul>
-                    <p>Zur Ausübung Ihrer Rechte kontaktieren Sie uns bitte unter <a href="mailto:Info@RIservice.de">Info@RIservice.de</a>.</p>
+                    <p>Zur Ausübung Ihrer Rechte kontaktieren Sie uns bitte unter <a href="mailto:info@ri-service24.de">info@ri-service24.de</a>.</p>
 
                     <h2 className="text-2xl mt-8 mb-4">8. Datensicherheit</h2>
                     <p>Wir treffen angemessene technische und organisatorische Maßnahmen zum Schutz Ihrer personenbezogenen Daten.</p>

@@ -210,25 +210,20 @@ export default function HomePage() {
                                 )}
                             </div>
                             <div className="p-8 flex flex-col flex-grow">
+                                <span className="text-primary font-bold tracking-wide uppercase text-xs mb-1 block">{service.category}</span>
                                 <h3 className="text-2xl font-bold text-secondary mb-3">{service.title}</h3>
-                                <p className="text-gray-600 mb-4">{service.description}</p>
-                                <ul className="flex flex-col gap-2 text-gray-700 mb-6 flex-grow text-sm">
-                                    {(() => {
-                                        let features = [];
-                                        try {
-                                            features = typeof service.features === 'string' ? JSON.parse(service.features) : service.features;
-                                        } catch (e) { }
-                                        return Array.isArray(features) ? features.slice(0, 3).map((feature: string, idx: number) => (
-                                            <li key={idx} className="flex items-start gap-2">
-                                                <span className="flex-shrink-0 flex items-center justify-center size-5 rounded-full bg-primary/10 text-primary mt-0.5">
-                                                    <span className="material-symbols-outlined text-[12px] font-bold">check</span>
-                                                </span>
-                                                <span className="leading-snug">{feature}</span>
-                                            </li>
-                                        )) : null;
-                                    })()}
+                                <p className="text-gray-600 mb-6">{service.description}</p>
+                                <ul className="flex flex-col gap-3 text-gray-700 mb-6">
+                                    {Array.isArray(service.features) && service.features.map((feature: string, idx: number) => (
+                                        <li key={idx} className="flex items-center gap-2">
+                                            <span className="flex items-center justify-center size-5 rounded-full bg-primary/10 text-primary shrink-0">
+                                                <span className="material-symbols-outlined text-[12px] font-bold">check</span>
+                                            </span>
+                                            <span className="text-sm">{feature}</span>
+                                        </li>
+                                    ))}
                                 </ul>
-                                <Link className="text-primary font-bold inline-flex items-center gap-2 hover:gap-3 transition-all relative z-20 w-fit" href={`/services/request?service=${service.slug}`}>
+                                <Link className="text-primary font-bold inline-flex items-center gap-2 hover:gap-3 transition-all relative z-20 w-fit mt-auto" href={`/services/request?service=${service.slug}`}>
                                     Mehr erfahren
                                     <span className="material-symbols-outlined text-sm">arrow_forward</span>
                                 </Link>

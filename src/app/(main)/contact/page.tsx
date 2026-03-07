@@ -111,7 +111,7 @@ export default function ContactPage() {
                         <div>
                             <h3 className="text-lg font-bold text-secondary mb-1">Schreiben Sie uns</h3>
                             <p className="text-gray-600 leading-relaxed">Für allgemeine Anfragen und Support</p>
-                            <a className="text-primary font-semibold hover:underline mt-1 block text-lg" href="mailto:[EMAIL_ADDRESS]">Info@RIservice.de</a>
+                            <a className="text-primary font-semibold hover:underline mt-1 block text-lg" href="mailto:info@ri-service24.de">info@ri-service24.de</a>
                         </div>
                     </div>
 
