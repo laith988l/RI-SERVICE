@@ -124,7 +124,7 @@ export default function HomePage() {
                     </div>
                     <div className="relative">
                         <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-2xl relative z-10" data-alt="Team meeting in a modern conference room">
-                            <img alt="Team meeting" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA437DXG6z2pqWzkCit5ofLvZLcD7DAOpc3gJIhbgRtzAbBHj8EStYsjpbtuT7zf6SK1dJ0axXmCILFhoXm9s6Hh-bcU7zqIGgZFKlVKEFu3I_BiTKumWROxP3OKMuOE19QThiJPMXkXuomjI3AunRAYjtib8Td51TqZrgfxK4a2tkBoH6w23wzSf64qJb2L369r0kkeqK23JD4SxQrmx2-miCJSV0_SRxD6zK-uhNPyMl3T-4FugsVrrtMpGyC20g2joHID3oW69Y" />
+                            <img alt="Team meeting" className="w-full h-full object-cover bg-gray-100" src="/about.png" />
                         </div>
                         <div className="absolute -bottom-6 -right-6 w-2/3 h-2/3 bg-primary/5 rounded-xl -z-0"></div>
                     </div>

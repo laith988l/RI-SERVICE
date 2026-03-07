@@ -23,7 +23,7 @@ export async function submitContactRequest(formData: FormData) {
 
     // Send email notification dynamically using env fallback to the main business email
     const notifyEmail = process.env.ADMIN_NOTIFY_EMAIL || 'info@ri-service24.de';
-    await sendMail({
+    const emailResult = await sendMail({
         to: notifyEmail,
         subject: `Neue Kontaktanfrage von ${data.first_name} ${data.last_name}`,
         html: `
@@ -37,6 +37,11 @@ export async function submitContactRequest(formData: FormData) {
             <p>${data.message}</p>
         `,
     });
+
+    if (!emailResult.success) {
+        console.error("EMAIL SENDING ERROR (Contact):", emailResult.error || emailResult.message);
+        throw new Error("Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut.");
+    }
 
     revalidatePath('/admin');
     return { success: true };
@@ -56,7 +61,7 @@ export async function submitFeedback(formData: FormData, rating: number) {
 
     // Send email notification dynamically using env fallback
     const notifyEmail = process.env.ADMIN_NOTIFY_EMAIL || 'info@ri-service24.de';
-    await sendMail({
+    const emailResult = await sendMail({
         to: notifyEmail,
         subject: `Neues Feedback von ${data.first_name} ${data.last_name}`,
         html: `
@@ -69,6 +74,11 @@ export async function submitFeedback(formData: FormData, rating: number) {
             <p>${data.feedback_text}</p>
         `,
     });
+
+    if (!emailResult.success) {
+        console.error("EMAIL SENDING ERROR (Feedback):", emailResult.error || emailResult.message);
+        throw new Error("Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut.");
+    }
 
     revalidatePath('/admin');
     return { success: true };

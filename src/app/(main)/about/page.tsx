@@ -44,12 +44,8 @@ export default function AboutPage() {
                             </p>
                         </div>
                         <div className="relative h-80 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                            <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10"></div>
-                            {/* Placeholder matching the theme, replace with actual team/office photo later if desired */}
-                            <div className="w-full h-full bg-gray-200 flex items-center justify-center relative overflow-hidden group">
-                                <div className="absolute inset-0 bg-gradient-to-tr from-primary/80 to-blue-500/80 group-hover:scale-105 transition-transform duration-1000"></div>
-                                <span className="material-symbols-outlined text-white/50 text-[120px] relative z-20">domain</span>
-                            </div>
+                            <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10 hover:bg-transparent transition-colors duration-500"></div>
+                            <img alt="RI Service Team" className="w-full h-full object-cover" src="/about.png" />
                         </div>
                     </div>
 

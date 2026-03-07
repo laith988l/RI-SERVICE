@@ -1,8 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '@/app/photo/logo.png';
+import { getPublicServices } from '@/app/actions/public';
 
-export default function Footer() {
+export default async function Footer() {
+    const services = await getPublicServices();
+    
     return (
         <footer className="bg-white border-t border-gray-200 pt-16 pb-8 mt-auto">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,10 +57,17 @@ export default function Footer() {
                     <div>
                         <h4 className="font-bold text-secondary mb-4">Leistungen</h4>
                         <ul className="space-y-3 text-sm">
-                            <li><a className="text-gray-500 hover:text-primary transition-colors" href="#">Baustellen & Bauendreinigung</a></li>
-                            <li><a className="text-gray-500 hover:text-primary transition-colors" href="#">Gebäudereinigung</a></li>
-                            <li><a className="text-gray-500 hover:text-primary transition-colors" href="#">Fahrzeugüberführung</a></li>
-                            <li><a className="text-gray-500 hover:text-primary transition-colors" href="#">Hausmeisterservice</a></li>
+                            {services.length > 0 ? (
+                                services.map(service => (
+                                    <li key={service.id}>
+                                        <Link className="text-gray-500 hover:text-primary transition-colors" href={`/services/request?service=${service.slug}`}>
+                                            {service.title}
+                                        </Link>
+                                    </li>
+                                ))
+                            ) : (
+                                <li><span className="text-gray-400">Keine Leistungen gefunden</span></li>
+                            )}
                         </ul>
                     </div>
                     <div>
