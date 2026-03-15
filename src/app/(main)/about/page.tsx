@@ -3,6 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion, Variants } from "framer-motion";
+
+const fadeUpVariant: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+};
 
 export default function AboutPage() {
     const [isVisible, setIsVisible] = useState(false);
@@ -33,7 +44,12 @@ export default function AboutPage() {
             {/* Main Content */}
             <section className="py-20 md:py-32 flex-grow bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
+                    <motion.div 
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={fadeUpVariant}
+                        className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
                         <div className="space-y-6">
                             <h2 className="text-3xl md:text-4xl font-bold text-secondary">Wer wir sind</h2>
                             <p className="text-gray-600 leading-relaxed text-lg">
@@ -47,16 +63,26 @@ export default function AboutPage() {
                             <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10 hover:bg-transparent transition-colors duration-500"></div>
                             <img alt="RI Service Team" className="w-full h-full object-cover" src="/about.png" />
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Values Section */}
-                    <div className="text-center mb-16">
+                    <motion.div 
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={fadeUpVariant}
+                        className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Unsere Werte</h2>
                         <p className="text-gray-600 max-w-2xl mx-auto text-lg">Darauf können Sie sich bei jeder Zusammenarbeit mit RI Service verlassen.</p>
-                    </div>
+                    </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1">
+                    <motion.div 
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={staggerContainer}
+                        className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <motion.div variants={fadeUpVariant} className="bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1">
                             <div className="w-14 h-14 bg-blue-100 text-primary rounded-xl flex items-center justify-center mb-6">
                                 <span className="material-symbols-outlined text-3xl">verified</span>
                             </div>
@@ -64,8 +90,8 @@ export default function AboutPage() {
                             <p className="text-gray-600 leading-relaxed">
                                 Wir verwenden modernstes Equipment und setzen auf geschultes Personal, um Ergebnisse zu liefern, die nicht nur oberflächlich glänzen.
                             </p>
-                        </div>
-                        <div className="bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1">
+                        </motion.div>
+                        <motion.div variants={fadeUpVariant} className="bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1">
                             <div className="w-14 h-14 bg-blue-100 text-primary rounded-xl flex items-center justify-center mb-6">
                                 <span className="material-symbols-outlined text-3xl">handshake</span>
                             </div>
@@ -73,8 +99,8 @@ export default function AboutPage() {
                             <p className="text-gray-600 leading-relaxed">
                                 Pünktlichkeit und Diskretion sind für uns selbstverständlich. Absprachen und Termine werden strikt eingehalten.
                             </p>
-                        </div>
-                        <div className="bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1">
+                        </motion.div>
+                        <motion.div variants={fadeUpVariant} className="bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1">
                             <div className="w-14 h-14 bg-blue-100 text-primary rounded-xl flex items-center justify-center mb-6">
                                 <span className="material-symbols-outlined text-3xl">support_agent</span>
                             </div>
@@ -82,21 +108,26 @@ export default function AboutPage() {
                             <p className="text-gray-600 leading-relaxed">
                                 Jedes Projekt ist individuell. Wir hören Ihnen genau zu und passen unsere Dienstleistungen exakt an Ihre spezifischen Anforderungen an.
                             </p>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* CTA Section */}
             <section className="py-20 bg-gray-900 text-white text-center">
-                <div className="max-w-4xl mx-auto px-4">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={fadeUpVariant}
+                    className="max-w-4xl mx-auto px-4">
                     <h2 className="text-3xl md:text-4xl font-bold mb-6">Bereit für eine Zusammenarbeit?</h2>
                     <p className="text-gray-300 mb-10 text-lg">Lassen Sie uns gemeinsam herausfinden, wie wir Ihr Unternehmen oder Ihren Alltag entlasten können.</p>
                     <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold py-4 px-8 rounded-full transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/30">
                         Kontakt Aufnehmen
                         <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
                     </Link>
-                </div>
+                </motion.div>
             </section>
         </div>
     );

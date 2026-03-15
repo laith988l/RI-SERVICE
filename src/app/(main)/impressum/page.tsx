@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { FadeUpDiv, FadeUpP } from '@/components/animations/MotionWrappers';
 
 export const metadata: Metadata = {
     title: 'Impressum | RI Service',
@@ -10,16 +11,16 @@ export default function ImpressumPage() {
     return (
         <main className="flex-grow w-full max-w-[1440px] mx-auto px-4 sm:px-10 py-10 lg:py-16">
             <div className="mb-12 max-w-[800px] mx-auto">
-                <div className="flex items-center gap-4 mb-6">
+                <FadeUpDiv margin="-50px" className="flex items-center gap-4 mb-6">
                     <span className="bg-primary/10 text-primary p-3 rounded-2xl material-symbols-outlined !text-4xl flex items-center justify-center">gavel</span>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-secondary tracking-tight">Impressum</h1>
-                </div>
-                <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                </FadeUpDiv>
+                <FadeUpP margin="-50px" className="text-lg md:text-xl text-gray-600 leading-relaxed">
                     Rechtliche Informationen und Anbieterkennzeichnung der RI Service GmbH.
-                </p>
+                </FadeUpP>
             </div>
 
-            <div className="max-w-[800px] mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12 lg:p-16 hover:shadow-md transition-shadow duration-300">
+            <FadeUpDiv margin="-100px" className="max-w-[800px] mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12 lg:p-16 hover:shadow-md transition-shadow duration-300">
                 <div className="prose prose-slate prose-lg max-w-none text-gray-600 prose-headings:text-secondary prose-headings:font-bold prose-a:text-primary hover:prose-a:text-primary-dark prose-p:leading-relaxed">
 
                     <h2 className="text-2xl mt-0 mb-4">Angaben gemäß § 5 TMG</h2>
@@ -68,7 +69,7 @@ export default function ImpressumPage() {
                         Zurück zur Startseite
                     </Link>
                 </div>
-            </div>
+            </FadeUpDiv>
         </main>
     );
 }

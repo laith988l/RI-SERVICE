@@ -5,6 +5,12 @@ import Link from "next/link";
 import { Suspense, useState, useEffect } from "react";
 import { submitContactRequest } from "@/app/actions/contact";
 import { getPublicServices } from "@/app/actions/public";
+import { motion, Variants } from "framer-motion";
+
+const fadeUpVariant: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
 
 function RequestFormContent() {
     const searchParams = useSearchParams();
@@ -73,7 +79,12 @@ function RequestFormContent() {
             </nav>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-                <div className="lg:col-span-6 flex flex-col gap-8">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={fadeUpVariant}
+                    className="lg:col-span-6 flex flex-col gap-8">
                     <div className="flex flex-col gap-4">
                         <span className="text-primary font-bold tracking-wide uppercase text-sm">{activeService.category}</span>
                         <h1 className="text-4xl md:text-5xl font-black text-secondary leading-[1.1] tracking-tight">
@@ -120,9 +131,14 @@ function RequestFormContent() {
                             })()}
                         </ul>
                     </div>
-                </div>
+                </motion.div>
 
-                <div className="lg:col-span-6 flex flex-col gap-6">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={fadeUpVariant}
+                    className="lg:col-span-6 flex flex-col gap-6">
                     <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 lg:sticky top-28">
                         <div className="mb-8">
                             <h3 className="text-2xl font-bold text-secondary mb-2">Unverbindliches Angebot anfordern</h3>
@@ -200,7 +216,7 @@ function RequestFormContent() {
                             </button>
                         </form>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </main>
     );

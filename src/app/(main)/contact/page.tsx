@@ -4,6 +4,17 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { submitContactRequest, submitFeedback } from '@/app/actions/contact';
 import { getPublicServices } from '@/app/actions/public';
+import { motion, Variants } from 'framer-motion';
+
+const fadeUpVariant: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+};
 
 export default function ContactPage() {
     const [rating, setRating] = useState(0);
@@ -72,14 +83,24 @@ export default function ContactPage() {
     }
     return (
         <main className="flex-grow w-full max-w-[1440px] mx-auto px-4 sm:px-10 py-10 lg:py-16">
-            <div className="mb-12 max-w-[800px]">
+            <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={fadeUpVariant}
+                className="mb-12 max-w-[800px]">
                 <h1 className="text-4xl md:text-5xl font-black text-secondary mb-4 tracking-tight">Kontakt & Anfragen</h1>
                 <p className="text-lg text-gray-600">Wir sind für Sie da. Kontaktieren Sie uns direkt für ein individuelles Angebot oder teilen Sie uns Ihr Anliegen mit.</p>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-                <div className="lg:col-span-5 flex flex-col gap-6">
-                    <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex items-start gap-5">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={staggerContainer}
+                    className="lg:col-span-5 flex flex-col gap-6">
+                    <motion.div variants={fadeUpVariant} className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex items-start gap-5">
                         <div className="flex-shrink-0 size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                             <span className="material-symbols-outlined text-2xl">location_on</span>
                         </div>
@@ -89,9 +110,9 @@ export default function ContactPage() {
                                 Deutschlandweit im Einsatz
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex items-start gap-5">
+                    <motion.div variants={fadeUpVariant} className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex items-start gap-5">
                         <div className="flex-shrink-0 size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                             <span className="material-symbols-outlined text-2xl">call</span>
                         </div>
@@ -100,9 +121,9 @@ export default function ContactPage() {
                             <p className="text-gray-600 leading-relaxed">Mo-Fr von 08:00 bis 18:00 Uhr</p>
                             <a className="text-primary font-semibold hover:underline mt-1 block text-lg" href="#">+49 15563 322378</a>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex items-start gap-5">
+                    <motion.div variants={fadeUpVariant} className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex items-start gap-5">
                         <div className="flex-shrink-0 size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                             <span className="material-symbols-outlined text-2xl">mail</span>
                         </div>
@@ -111,9 +132,9 @@ export default function ContactPage() {
                             <p className="text-gray-600 leading-relaxed">Für allgemeine Anfragen und Support</p>
                             <a className="text-primary font-semibold hover:underline mt-1 block text-lg" href="mailto:info@ri-service24.de">info@ri-service24.de</a>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex items-start gap-5">
+                    <motion.div variants={fadeUpVariant} className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex items-start gap-5">
                         <div className="flex-shrink-0 size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                             <span className="material-symbols-outlined text-2xl">schedule</span>
                         </div>
@@ -125,12 +146,17 @@ export default function ContactPage() {
                                 <li className="flex justify-between w-full min-w-[200px]"><span>Sonntag</span> <span className="font-medium text-secondary">Geschlossen</span></li>
                             </ul>
                         </div>
-                    </div>
+                    </motion.div>
 
 
-                </div>
+                </motion.div>
 
-                <div className="lg:col-span-7 flex flex-col gap-8">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={fadeUpVariant}
+                    className="lg:col-span-7 flex flex-col gap-8">
                     <div className="bg-white rounded-xl p-8 md:p-10 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300">
                         <h2 className="text-2xl font-bold text-secondary mb-6 flex items-center gap-3">
                             <span className="bg-primary/10 text-primary p-2 rounded-lg material-symbols-outlined">chat_bubble</span>
@@ -207,10 +233,15 @@ export default function ContactPage() {
                             </form>
                         )}
                     </div>
-                </div>
+                </motion.div>
             </div>
 
-            <div id="feedback" className="mt-12 bg-white rounded-xl p-5 md:p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 ">
+            <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={fadeUpVariant}
+                id="feedback" className="mt-12 bg-white rounded-xl p-5 md:p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 ">
                 <div className="mb-8 text-center">
                     <span className="bg-primary/10 text-primary p-3 rounded-full mb-4 inline-block material-symbols-outlined !text-4xl text-center">star_rate</span>
                     <h2 className="text-2xl font-bold text-secondary mb-2">Feedback zum Service</h2>
@@ -288,7 +319,7 @@ export default function ContactPage() {
                         </button>
                     </form>
                 )}
-            </div>
+            </motion.div>
         </main>
     );
 }

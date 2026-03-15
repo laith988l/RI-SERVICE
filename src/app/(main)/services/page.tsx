@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { getPublicServices } from "@/app/actions/public";
+import { FadeUpDiv, StaggerContainer, StaggerItem } from "@/components/animations/MotionWrappers";
 
 export default async function ServicesPage() {
     const services = await getPublicServices();
     return (
         <main className="flex-grow w-full">
             <section className="py-20 px-6 text-center">
-                <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
+                <FadeUpDiv margin="-100px" className="max-w-4xl mx-auto flex flex-col items-center gap-6">
 
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-secondary">
                         Unsere Dienstleistungen
@@ -14,17 +15,17 @@ export default async function ServicesPage() {
                     <p className="text-lg text-gray-600 max-w-2xl leading-relaxed">
                         Wir bieten Ihnen ein umfassendes Leistungsspektrum rund um Reinigung, Betreuung und Fahrzeugüberführung zuverlässig, flexibel und kundenorientiert.
                     </p>
-                </div>
+                </FadeUpDiv>
             </section>
 
             <section className="px-6 pb-24">
-                <div className="max-w-[1280px] mx-auto flex flex-col gap-16 md:gap-24">
+                <StaggerContainer margin="-100px" className="max-w-[1280px] mx-auto flex flex-col gap-16 md:gap-24">
 
                     {services.map((service, index) => {
                         const isEven = index % 2 === 0;
 
                         return (
-                            <div key={service.id} className="group relative grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-white p-6 md:p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                            <StaggerItem key={service.id} className="group relative grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-white p-6 md:p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100">
                                 <div className={`flex flex-col gap-6 order-2 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
                                     <div className="flex flex-col gap-3">
                                         <span className="text-primary font-bold tracking-wide uppercase text-sm">{service.category}</span>
@@ -57,15 +58,15 @@ export default async function ServicesPage() {
                                         </div>
                                     )}
                                 </div>
-                            </div>
+                            </StaggerItem>
                         );
                     })}
 
-                </div>
+                </StaggerContainer>
             </section>
 
             <section className="bg-primary py-20 px-6 mt-auto">
-                <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
+                <FadeUpDiv margin="-100px" className="max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
                     <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
                         Bereit für den nächsten Schritt?
                     </h2>
@@ -77,7 +78,7 @@ export default async function ServicesPage() {
                             Kontaktieren Sie uns
                         </Link>
                     </div>
-                </div>
+                </FadeUpDiv>
             </section>
         </main>
     );
