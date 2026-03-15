@@ -86,9 +86,7 @@ export default function ContactPage() {
                         <div>
                             <h3 className="text-lg font-bold text-secondary mb-1">Besuchen Sie uns</h3>
                             <p className="text-gray-600 leading-relaxed">
-                                Weidigweg 2
-                                <br />64293 Darmstadt
-                                <br />Deutschland
+                                Deutschlandweit im Einsatz
                             </p>
                         </div>
                     </div>

@@ -34,9 +34,7 @@ export default function ImpressumPage() {
                     </p>
                     <p>
                         <strong>Address:</strong><br />
-                        Weidigweg 2<br />
-                        64297 Darmstadt<br />
-                        Deutschland
+                        Deutschlandweit im Einsatz
                     </p>
 
                     <h2 className="text-2xl mt-8 mb-4">Contact</h2>
@@ -51,9 +49,7 @@ export default function ImpressumPage() {
                     <h2 className="text-2xl mt-8 mb-4">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
                     <p>
                         Rami Alali<br />
-                        Weidigweg 2<br />
-                        64297 Darmstadt<br />
-                        Deutschland
+                        Deutschlandweit im Einsatz
                     </p>
 
                     <h2 className="text-2xl mt-8 mb-4">Haftung für Inhalte</h2>

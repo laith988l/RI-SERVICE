@@ -5,7 +5,7 @@ import { getPublicServices } from '@/app/actions/public';
 
 export default async function Footer() {
     const services = await getPublicServices();
-    
+
     return (
         <footer className="bg-white border-t border-gray-200 pt-16 pb-8 mt-auto">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +75,7 @@ export default async function Footer() {
                         <ul className="space-y-3 text-sm">
                             <li className="flex items-start gap-3">
                                 <span className="material-symbols-outlined text-primary text-[20px]">location_on</span>
-                                <span className="text-gray-500">Weidigweg 2<br />64297 Darmstadt <br />Deutschland</span>
+                                <span className="text-gray-500">Deutschlandweit im Einsatz</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="material-symbols-outlined text-primary text-[20px]">mail</span>

@@ -28,9 +28,7 @@ export default function DatenschutzPage() {
 
                         <strong>Firmenname:</strong> RI Service<br />
                         <strong>Name des Inhabers:</strong> Rami Alali<br />
-                        <strong>Adresse:</strong> Weidigweg 2<br />
-                        64297 Darmstadt<br />
-                        Deutschland
+                        <strong>Adresse:</strong> Deutschlandweit im Einsatz
 
                     </p>
                     <p>
