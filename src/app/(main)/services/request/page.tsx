@@ -23,10 +23,13 @@ function RequestFormContent() {
     const [captcha, setCaptcha] = useState({ num1: 0, num2: 0 });
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         setCaptcha({ num1: Math.floor(Math.random() * 10) + 1, num2: Math.floor(Math.random() * 10) + 1 });
         getPublicServices().then(data => {
             if (data) setServicesList(data);
             setIsLoading(false);
+            // double check scroll position after content load
+            setTimeout(() => window.scrollTo(0, 0), 10);
         });
     }, []);
 
