@@ -33,7 +33,7 @@ export default function Navbar() {
                         <Link className={`font-medium text-sm transition-colors ${pathname.startsWith("/contact") ? "text-primary" : "text-gray-600 hover:text-primary"}`} href="/contact">Kontakt</Link>
                     </div>
                     <div className="hidden md:flex">
-                        <Link href="/services/request"
+                        <Link href="/services"
                             className="bg-primary hover:bg-primary-dark text-white text-sm font-bold py-2.5 px-6 rounded-full transition-colors duration-200 flex items-center gap-2">
                             <span >Mehr erfahren</span>
                             <span className="material-symbols-outlined !text-[18px]">arrow_forward</span>
